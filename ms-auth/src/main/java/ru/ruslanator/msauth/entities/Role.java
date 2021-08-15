@@ -3,10 +3,9 @@ package ru.ruslanator.msauth.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.swing.*;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role_table")
 @Data
 public class Role {
 
