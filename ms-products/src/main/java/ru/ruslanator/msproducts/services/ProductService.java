@@ -1,6 +1,7 @@
 package ru.ruslanator.msproducts.services;
 
 import lombok.RequiredArgsConstructor;
+import org.aspectj.lang.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
@@ -11,6 +12,7 @@ import ru.ruslanator.msproducts.repositories.ProductRepository;
 
 import java.util.Optional;
 
+@Aspect
 @Service
 @RequiredArgsConstructor
 public class ProductService {
