@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.ruslanator.corelib.interfaces.ITokenService;
 import ru.ruslanator.corelib.models.UserInfo;
+import ru.ruslanator.corelib.repositories.RedisRepository;
 import ru.ruslanator.msauth.dtos.AuthRequestDto;
 import ru.ruslanator.msauth.dtos.AuthResponseDto;
 import ru.ruslanator.msauth.dtos.SignUpRequestDto;
@@ -23,6 +24,9 @@ public class AuthController {
 
     @Autowired
     private ITokenService iTokenService;
+
+    @Autowired
+    private RedisRepository redisRepository;
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
@@ -45,5 +49,11 @@ public class AuthController {
                 .build();
         String token = iTokenService.generateToken(userInfo);
         return new AuthResponseDto(token);
+    }
+
+    @GetMapping("/logout")
+    public Boolean logout(@RequestHeader("Authorization") String token) {
+        redisRepository.saveToken(token);
+        return true;
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.ruslanator.corelib.configurations.jwt.JWTAuthenticationFilter;
 import ru.ruslanator.corelib.interfaces.ITokenService;
+import ru.ruslanator.corelib.repositories.RedisRepository;
 
 
 @Configuration
@@ -21,7 +22,7 @@ import ru.ruslanator.corelib.interfaces.ITokenService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    ITokenService iTokenService;
+    JWTAuthenticationFilter filter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -33,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .and()
-                .addFilterBefore(new JWTAuthenticationFilter(iTokenService), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean
