@@ -16,9 +16,11 @@
     <properties>
         <io-jwt.version>0.9.1</io-jwt.version>
         <springdoc-ui.version>1.5.10</springdoc-ui.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
 
     <dependencies>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -84,6 +86,17 @@
             <version>3.3.0</version>
             <type>jar</type>
         </dependency>
+
+        <!-- Cloud -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

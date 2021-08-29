@@ -12,6 +12,9 @@ import ru.ruslanator.msproducts.entities.ProductDto;
 import ru.ruslanator.msproducts.repositories.specifications.ProductSpecifications;
 import ru.ruslanator.msproducts.services.ProductService;
 
+import javax.ws.rs.PathParam;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
