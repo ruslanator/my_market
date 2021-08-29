@@ -10,6 +10,7 @@ import ru.ruslanator.msproducts.entities.Product;
 import ru.ruslanator.msproducts.entities.ProductDto;
 import ru.ruslanator.msproducts.repositories.ProductRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Aspect
